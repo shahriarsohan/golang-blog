@@ -31,5 +31,6 @@ func Connect() {
 	DB = db
 	DB.AutoMigrate(
 		&models.User{},
+		&models.Post{},
 	)
 }

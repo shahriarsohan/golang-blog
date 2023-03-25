@@ -15,3 +15,7 @@ func (user *User) SetPassword(password string) {
 	hashed_pass, _ := bcrypt.GenerateFromPassword([]byte(password), 14)
 	user.Password = hashed_pass
 }
+
+func (user *User) ComparePassword(password string) error {
+	return bcrypt.CompareHashAndPassword(user.Password, []byte(password))
+}
